@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Batman page </title>
+
+        <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+
+    </head>
+    <body>
+        <h1> Hello! I am batman! </h1>
+        <h2> Here are your access records: </h2>
+        <div class="djangtwo">
+             {% if access_records %}
+             <table>
+                 <thead>
+                     <th>Site name</th>
+                     <th>Date accessed</th>
+                 </thead>
+
+                 {% for access_record in access_records %}
+                 <tr>
+                     <td>{{ access_record.name }}</td>
+                     <td>{{ access_record.date }} </td>
+                 </tr>
+                 {% endfor %}
+
+             </table>
+             {% else %}
+             <p> No access records found </p>
+             {% endif %} 
+
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <img src="{% static 'images/batman.jpeg' %}" alt="batman">
+
+
+    </body>
+</html>
